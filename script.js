@@ -3,21 +3,26 @@
 //Variable names
 var generateBtn = document.querySelector("#generate");
 var upperCaseLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var upperCaseLetterLength = upperCaseLetter.length;
 var lowerCaseLetter = "abcdefghijklmnopqrstuvwxyz";
-var lowerCaseLetterLength = lowerCaseLetter.length;
 var specialCharacter = "!£$%^&*()-+=#@";
-var specialCharacterLength = specialCharacter.length
 var numbers = "123456789";
-var numbersLength = numbers.length ;
 var characterLength = "";
-var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
 
+//var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
 
-var upperCaseAnswer = false
+//Default value for variables i.e. the default answer)
+var upperCaseAnswer = false;
 var lowerCaseAnswer = false;
 var numbersAnswer = false;
 var specialCharacterAnswer = false;
+
+//Variables for retrieving answer
+var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetter.length));
+var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
+var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
+var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
+var characterLengthAnswer = parseInt(characterLength)
+var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers"]
 
 // Write password to the #password input
 function writePassword() {
@@ -27,25 +32,95 @@ function writePassword() {
     numbersAnswer = confirm("Do you want numbers?");
     specialCharacterAnswer = confirm("Do you want symbols?");
     characterLength = prompt("Click to choose a number between 8 and 128");
+    
+    if (characterLength <= 7 || characterLength >= 129) {
+      alert("You need to enter a number between 8 and 128")  
+    } 
+    else (characterLength);
   }
   else (alert("You need to choose a criteria"));
-}
 
-if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-}
+};
+
+//Generate Password method
+function generatePassword() {
+  
+  for (i = 0; i < options.length; i++) {
+    randomPassword = Math.floor(Math.random()* options.length)
+    password = randomPassword
+  };
+
+  if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength > 8 && characterLength < 128) {
+    return passwordAnswer = password;
+  };
+
+
+
+  // var passwordResult = []
+  // if (writePassword.upperCaseAnswer === true) {
+  //   for (i = 0; i < upperCaseLetter.length; ++i) {
+  //     passwordResult.push(upperCaseLetter[i]);
+  //   }
+  // }
+  // if (writePassword.lowerCaseAnswer === true) {
+  //   for (i = 0; i < lowerCaseLetter.length; ++i) {
+  //     passwordResult.push(lowerCaseLetter[i]);
+  //   }
+  // }
+  // if (writePassword.numbersAnswer === true) {
+  //   for (i = 0; i < numbers.length; ++i) {
+  //     passwordResult.push(numbers[i]);
+  //   }
+  // }
+  // if (writePassword.specialCharacterAnswer === true) {
+  //   for (i = 0; i < specialCharacter.length; ++i) {
+  //     passwordResult.push(numbers[i]);
+  //   }
+  // }
+  // password = generatePassword.charAt(Math.floor(Math.random() * passwordResult.length));
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+
+  // passwordText.value = password;
+};
+
+//Retrieving Answer
+// var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetter.length));
+// var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
+// var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
+// var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
+// var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers"]
+
+
+// if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLengthAnswer >= 8 && characterLengthAnswer <= 128) {
+  // function generatePassword() {
+  //   password = choices.charAt(Math.floor(Math.random() * choices.length))
+  // };
+  
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+
+  // passwordText.value = password;
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 //Retrieving value from prompts
-var upperCaseAnswer = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetterLength));
-var numbersAnswer = numbers.parseInt((Math.random() * (128 - 8 + 1)), 10) + 8;
-var lowerCaseAnswer = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetterLength));
-var specialCharacterAnswer = specialCharacter.charAt(Math.floor(Math.random() * specialCharacterLetterLength))
+//var upperCaseAnswer = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetterLength));
+//var numbersAnswer = numbers.charAt(parseInt())
+//var lowerCaseAnswer = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetterLength));
+//var specialCharacterAnswer = specialCharacter.charAt(Math.floor(Math.random() * specialCharacterLetterLength))
 
+//might need a for loop 
+// For example
+// for (var i = 0; i < 5; i++)
+// text += possible.charAt(Math.floor(Math.random() * possible.length))
 
 //If/Else statement for each character type 
 // if (confirm("Click Ok if you want an uppercase letter")) {
@@ -73,21 +148,13 @@ var specialCharacterAnswer = specialCharacter.charAt(Math.floor(Math.random() * 
 // prompt("Click Number Between 8 and 128") {
 //  if (characterLength >= 8 && characterLength <= 128) {
 //    prompt();
-//   } else alert("You must choose a number between 8 and 124");
+//   } else alert("You must choose a number between 8 and 128");
 // };
 
 
 
 //2b. User must type select if they want an uppercase letter, lowercase letter, number and/or symbol
 // How to code letters?
-// var upperCaseLetter = true - confirm("Click ok to add an uppercase letter")
-//method is string.toUpperCase()
-
-// var lowerCaseLetter = true - confirm("Click ok to add a lowercase letter")
-// medthod is string.toLowerCase()
-
-// var symbol = true - confirm("Click ok to add a symbol")
-// var number = true - conifrm ("Click ok to add a number")
 
 //Note to self - Must add a condition that states at least 1 of the 4 criteria ✓
 //must be met in order to generate a secure password. If 1 of the 4 criteria are not met, 
