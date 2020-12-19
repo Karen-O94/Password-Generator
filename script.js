@@ -5,8 +5,8 @@ var generateBtn = document.querySelector("#generate");
 var upperCaseLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseLetter = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacter = "!£$%^&*()-+=#@";
-var numbers = "123456789";
-var characterLength = "";
+var numbers = "0123456789";
+var characterLength = parseInt("");
 
 //var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
 
@@ -21,18 +21,28 @@ var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCas
 var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
 var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
 var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
-var characterLengthAnswer = parseInt(characterLength)
-var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers"]
+var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers", "characterLength"];
+var options2 = 
+//var options2 = options.valueOf()
 
 // Write password to the #password input
 function writePassword() {
+  //Line 30 to 42 checks the user's criteria for generating a password
   if (confirm("Click OK to choose criteria")) {
-    upperCaseAnswer = confirm("Do you want an uppercase letter?");
+    //Checks if user wants an uppercase letter
+   upperCaseAnswer = confirm("Do you want an uppercase letter?");
+
+    //Checks if user wants a lowercase letter
     lowerCaseAnswer = confirm("Do you want a lowercase letter?");
+
+    //Checks if user wants a numeric value
     numbersAnswer = confirm("Do you want numbers?");
+
+    //Prompts user to choose if they want a symbol
     specialCharacterAnswer = confirm("Do you want symbols?");
     characterLength = prompt("Click to choose a number between 8 and 128");
     
+    //If user chooses a number below 8 or 128, they will have an alert to enter a max of 8 & min of 128
     if (characterLength <= 7 || characterLength >= 129) {
       alert("You need to enter a number between 8 and 128")  
     } 
@@ -48,16 +58,25 @@ function writePassword() {
 
 //Generate Password method
 function generatePassword() {
+ 
+  for (i = 0; i < characterLength; i++) {
+
+    var randomPassword = options.toString(Math.floor(Math.random() * options.length));
+    password.innerHTML += randomPassword; 
+
+    if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
+      return password.innerHTML += randomPassword;
+    };
+  }
   
-  for (i = 0; i < options.length; i++) {
-    randomPassword = Math.floor(Math.random()* options.length)
-    password = randomPassword
-  };
 
-  if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength > 8 && characterLength < 128) {
-    return passwordAnswer = password;
-  };
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword); 
 
 
   // var passwordResult = []
@@ -86,53 +105,6 @@ function generatePassword() {
   // var passwordText = document.querySelector("#password");
 
   // passwordText.value = password;
-};
-
-//Retrieving Answer
-// var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetter.length));
-// var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
-// var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
-// var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
-// var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers"]
-
-
-// if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLengthAnswer >= 8 && characterLengthAnswer <= 128) {
-  // function generatePassword() {
-  //   password = choices.charAt(Math.floor(Math.random() * choices.length))
-  // };
-  
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-//Retrieving value from prompts
-//var upperCaseAnswer = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetterLength));
-//var numbersAnswer = numbers.charAt(parseInt())
-//var lowerCaseAnswer = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetterLength));
-//var specialCharacterAnswer = specialCharacter.charAt(Math.floor(Math.random() * specialCharacterLetterLength))
-
-//might need a for loop 
-// For example
-// for (var i = 0; i < 5; i++)
-// text += possible.charAt(Math.floor(Math.random() * possible.length))
-
-//If/Else statement for each character type 
-// if (confirm("Click Ok if you want an uppercase letter")) {
-// }
-// else if (confirm("Click ok if you want a lowercase letter")) {
-// }
-// else if (confirm("Click ok if you want a number")) {
-// }
-// else if (confirm("Click ok if you want a symbol")) {
-// }
-// else (confirm("Click to choose a nunber between 8 and 128"))
-
 
 
 //Pseudocode
