@@ -22,7 +22,7 @@ var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCas
 var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
 var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
 var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers", "characterLength"];
-var options2 = 
+var options2 = JSON.parse
 //var options2 = options.valueOf()
 
 // Write password to the #password input
@@ -30,7 +30,7 @@ function writePassword() {
   //Line 30 to 42 checks the user's criteria for generating a password
   if (confirm("Click OK to choose criteria")) {
     //Checks if user wants an uppercase letter
-   upperCaseAnswer = confirm("Do you want an uppercase letter?");
+    upperCaseAnswer = confirm("Do you want an uppercase letter?");
 
     //Checks if user wants a lowercase letter
     lowerCaseAnswer = confirm("Do you want a lowercase letter?");
