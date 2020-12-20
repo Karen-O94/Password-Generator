@@ -6,22 +6,22 @@ var upperCaseLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseLetter = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacter = "!£$%^&*()-+=#@";
 var numbers = "0123456789";
-var characterLength = parseInt();
+var characterLength;
 
 //var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
 
 //Default value for variables i.e. the default answer)
-var upperCaseAnswer = false;
-var lowerCaseAnswer = false;
-var numbersAnswer = false;
-var specialCharacterAnswer = false;
+// var upperCaseAnswer = false;
+// var lowerCaseAnswer = false;
+// var numbersAnswer = false;
+// var specialCharacterAnswer = false;
 
 //Variables for retrieving answer
 var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCaseLetter.length));
 var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
 var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
 var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
-var options = [randomUpperCase, randomLowerCase, randomSpecial, randomNumbers, characterLength];
+var options = [randomUpperCase, randomLowerCase, randomSpecial, randomNumbers];
 
 
 // Write password to the #password input
@@ -60,12 +60,13 @@ function generatePassword() {
  
   for (i = 0; i < characterLength; i++) {
 
-    var randomPassword = options.join(Math.floor(Math.random() *characterLength));
-    password.innerHTML += randomPassword; 
+    var randomPassword = options.join(Math.floor(Math.random()* characterLength));
+    return password.innerHTML += randomPassword;
+    // password.innerHTML += randomPassword; 
 
-    if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
-      return password.innerHTML += randomPassword;
-    };
+    // if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
+      
+    // };
   }
   
 
@@ -76,35 +77,6 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); 
-
-
-  // var passwordResult = []
-  // if (writePassword.upperCaseAnswer === true) {
-  //   for (i = 0; i < upperCaseLetter.length; ++i) {
-  //     passwordResult.push(upperCaseLetter[i]);
-  //   }
-  // }
-  // if (writePassword.lowerCaseAnswer === true) {
-  //   for (i = 0; i < lowerCaseLetter.length; ++i) {
-  //     passwordResult.push(lowerCaseLetter[i]);
-  //   }
-  // }
-  // if (writePassword.numbersAnswer === true) {
-  //   for (i = 0; i < numbers.length; ++i) {
-  //     passwordResult.push(numbers[i]);
-  //   }
-  // }
-  // if (writePassword.specialCharacterAnswer === true) {
-  //   for (i = 0; i < specialCharacter.length; ++i) {
-  //     passwordResult.push(numbers[i]);
-  //   }
-  // }
-  // password = generatePassword.charAt(Math.floor(Math.random() * passwordResult.length));
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
 
 //Pseudocode
 // 1. When the user clicks the "Generate Password" button, 
@@ -122,14 +94,11 @@ generateBtn.addEventListener("click", writePassword);
 //   } else alert("You must choose a number between 8 and 128");
 // };
 
-
-
 //2b. User must type select if they want an uppercase letter, lowercase letter, number and/or symbol
 // How to code letters?
 
 //Note to self - Must add a condition that states at least 1 of the 4 criteria ✓
 //must be met in order to generate a secure password. If 1 of the 4 criteria are not met, 
 //the user is unable to generate a password. ✓,
-//Things to think about: maybe a ternary operator? or switch statement instead of if/else?
 //Put all Variable in a string and use .charAt() method to return a value to generate password 
 
