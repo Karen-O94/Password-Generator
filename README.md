@@ -9,5 +9,11 @@ The client's first criteria was for a series of prompts to pop up on the screen 
 
 After pseudocoding, I proceeded to declaring my variables for each character type and set the value as a string. 
 
+## Second steps: Prompts/Confirms/Alerts
+After declaring my intial variables, i created an if/else statement to hold my series of confirms,prompts and alerts. I used confirms to get the user to choose a specific character type they wanted and this returned a Boolean (true or false) value. However, since I wanted the user to choose the password length, I prompted this criteria out for them to input their desired value. This length value is then held in a variable to be called into a function later on. 
+
 ## Second Steps: Functions
-I identified I would need to gener
+I identified I would need to generate a function to pick random characters from each character type variable. This is w
+
+## Difficults
+I really struggled with generating my functions 

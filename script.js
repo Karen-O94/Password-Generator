@@ -6,7 +6,7 @@ var upperCaseLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseLetter = "abcdefghijklmnopqrstuvwxyz";
 var specialCharacter = "!£$%^&*()-+=#@";
 var numbers = "0123456789";
-var characterLength = parseInt("");
+var characterLength = parseInt();
 
 //var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
 
@@ -21,9 +21,8 @@ var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCas
 var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
 var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
 var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
-var options = ["randomUpperCase", "randomLowerCase", "randomSpecial", "randomNumbers", "characterLength"];
-var options2 = JSON.parse
-//var options2 = options.valueOf()
+var options = [randomUpperCase, randomLowerCase, randomSpecial, randomNumbers, characterLength];
+
 
 // Write password to the #password input
 function writePassword() {
@@ -44,7 +43,7 @@ function writePassword() {
     
     //If user chooses a number below 8 or 128, they will have an alert to enter a max of 8 & min of 128
     if (characterLength <= 7 || characterLength >= 129) {
-      alert("You need to enter a number between 8 and 128")  
+      alert("You need to enter a number between 8 and 128");  
     } 
     else (characterLength);
   }
@@ -61,7 +60,7 @@ function generatePassword() {
  
   for (i = 0; i < characterLength; i++) {
 
-    var randomPassword = options.toString(Math.floor(Math.random() * options.length));
+    var randomPassword = options.join(Math.floor(Math.random() *characterLength));
     password.innerHTML += randomPassword; 
 
     if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
