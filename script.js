@@ -8,8 +8,6 @@ var specialCharacter = "!£$%^&*()-+=#@";
 var numbers = "0123456789";
 var characterLength;
 
-//var generatePassword = "upperCaseLetter, lowerCaseLetter, specialCharacter, numbers";
-
 //Default value for variables i.e. the default answer)
 // var upperCaseAnswer = false;
 // var lowerCaseAnswer = false;
@@ -21,7 +19,7 @@ var randomUpperCase = upperCaseLetter.charAt(Math.floor(Math.random() * upperCas
 var randomLowerCase = lowerCaseLetter.charAt(Math.floor(Math.random() * lowerCaseLetter.length));
 var randomSpecial = specialCharacter.charAt(Math.floor(Math.random() * specialCharacter.length));
 var randomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length));
-var options = [randomUpperCase, randomLowerCase, randomSpecial, randomNumbers];
+var options = [randomUpperCase, randomLowerCase, randomSpecial, randomNumbers, characterLength];
 
 
 // Write password to the #password input
@@ -59,22 +57,13 @@ function writePassword() {
 function generatePassword() {
  
   for (i = 0; i < characterLength; i++) {
-
-    var randomPassword = options.join(Math.floor(Math.random()* characterLength));
-    return password.innerHTML += randomPassword;
-    // password.innerHTML += randomPassword; 
-
-    // if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
-      
-    // };
+    var randomPassword = options.join(Math.floor(Math.random()* options.length));
+    password.innerHTML += randomPassword;
+    if ((lowerCaseAnswer || upperCaseAnswer || numbersAnswer || specialCharacterAnswer) && characterLength >= 8 && characterLength <= 128) {
+    }
+    return randomPassword.slice(0,(characterLength));
   }
-  
-
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); 
 
